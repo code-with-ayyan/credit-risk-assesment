@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Tailwind v4 configuration lives in CSS via @theme */
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0e1b2e;
+  --color-paper: #f3f5fa;
+  --color-brand: #2f5bea;
+  --color-brand-dark: #1e3fb5;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-paper font-sans text-ink;
+  }
+  /* hide number input spinners */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
